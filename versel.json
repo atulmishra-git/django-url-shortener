@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "<projectname>/config/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.8" }
+      },
+      {
+        "src": "build_files.sh"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "<projectname>/config/wsgi.py"
+      }
+    ]
+  }
